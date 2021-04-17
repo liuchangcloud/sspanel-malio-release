@@ -114,6 +114,7 @@
                 </button>
                 <div class="dropdown-menu dropleft">
                   <a class="dropdown-item has-icon" href="/user/tutorial?os=windows&client=cfw"><i class="malio-clash"></i>Clash for Windows</a>
+                  <a class="dropdown-item has-icon" href="/user/tutorial?os=windows&client=v2ray"><i class="malio-clash"></i>Clash for Windows</a>
                 </div>
               </div>
               {/if}
