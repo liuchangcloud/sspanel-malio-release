@@ -520,9 +520,9 @@
       '{$user->LastusedTraffic()}',
       '{$user->TodayusedTraffic()}',
       '{$user->unusedTraffic()}',
-      '{number_format($user->last_day_t/$user->transfer_enable*100,2)}',
-      '{number_format(($user->u+$user->d-$user->last_day_t)/$user->transfer_enable*100,2)}',
-      '{number_format(($user->transfer_enable-($user->u+$user->d))/$user->transfer_enable*100,2)}'
+      '{($user->transfer_enable == 0) ? number_format($user->last_day_t): number_format($user->last_day_t/$user->transfer_enable*100,2)}',
+      '{($user->transfer_enable == 0) ? number_format($user->last_day_t): number_format(($user->u+$user->d-$user->last_day_t)/$user->transfer_enable*100,2)}',
+      '{($user->transfer_enable == 0) ? number_format($user->last_day_t): number_format(($user->transfer_enable-($user->u+$user->d))/$user->transfer_enable*100,2)}'
     )
 
     $('.counter').counterUp({
