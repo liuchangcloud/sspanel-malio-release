@@ -37,6 +37,8 @@ use App\Models\UnblockIp;
 use Exception;
 use RuntimeException;
 
+use Ramsey\Uuid\Uuid;
+
 class Job
 {
     public static function syncnode()
@@ -610,6 +612,11 @@ class Job
 
         $users = User::all();
         foreach ($users as $user) {
+            if($user->uuid == ""){
+                $user->uuid = Uuid::uuid3(Uuid::NAMESPACE_DNS, $user->email . '|' . $current_timestamp);
+                $user->save();
+            }
+
             if (($user->transfer_enable <= $user->u + $user->d || $user->enable == 0 || (strtotime($user->expire_in) < time() && strtotime($user->expire_in) > 644447105)) && RadiusBan::where(
                 'userid',
                 $user->id
