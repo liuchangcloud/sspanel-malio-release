@@ -41,6 +41,8 @@ use Ramsey\Uuid\Uuid;
 
 class Job
 {
+        $current_timestamp = time();
+
     public static function syncnode()
     {
         $nodes = Node::all();
@@ -613,6 +615,8 @@ class Job
         $users = User::all();
         foreach ($users as $user) {
             if($user->uuid == ""){
+                $current_timestamp = time();
+
                 $user->uuid = Uuid::uuid3(Uuid::NAMESPACE_DNS, $user->email . '|' . $current_timestamp);
                 $user->save();
             }
