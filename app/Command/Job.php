@@ -41,7 +41,7 @@ use Ramsey\Uuid\Uuid;
 
 class Job
 {
-        $current_timestamp = time();
+    public $current_timestamp;
 
     public static function syncnode()
     {
