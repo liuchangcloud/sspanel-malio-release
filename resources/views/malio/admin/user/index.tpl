@@ -106,7 +106,10 @@
 {include file='admin/footer.tpl'}
 
 <script>
-
+    function navigator_clipboard(text) {
+        navigator.clipboard.writeText(text);
+    }
+    
     function delete_modal_show(id) {
         deleteid = id;
         $("#delete_modal").modal();
